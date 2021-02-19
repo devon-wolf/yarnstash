@@ -28,7 +28,6 @@ export default class AllYarn extends Component {
 					<p>Color: {yarnObj.color}</p>
 					<p>Weight: {yarnObj.yarn_weight}</p>
 					<p>Quantity on Hand: {yarnObj.quantity}</p>
-					<p>Partial skeins? {yarnObj.partials}</p>
 				</div>)}
 			</div>
 		)

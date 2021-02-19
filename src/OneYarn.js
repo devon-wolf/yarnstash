@@ -28,7 +28,6 @@ export default class OneYarn extends Component {
 					<p>Color: {this.state.yarn.color}</p>
 					<p>Weight: {this.state.yarn.yarn_weight}</p>
 					<p>Quantity on Hand: {this.state.yarn.quantity}</p>
-					<p>Partial skeins? {this.state.yarn.partials}</p>
 				</div>
 			</div>
 		)
