@@ -1,5 +1,4 @@
 import './App.css';
-import request from 'superagent'
 import {
   BrowserRouter as Router, 
   Route, 
