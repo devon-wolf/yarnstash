@@ -12,7 +12,7 @@ export default class AllYarn extends Component {
 
 	loadYarn = async () => {
 		this.setState({ yarn: [] });
-		const yarnData = await request.get(`https://yarnstash.herokuapp.com/yarn`);
+		const yarnData = await request.get(`https://glacial-mesa-65705.herokuapp.com/yarns`);
 		this.setState({ yarn: yarnData.body });
    }
 
