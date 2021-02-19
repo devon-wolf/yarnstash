@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import request from 'superagent'
+import {
+  BrowserRouter as Router, 
+  Route, 
+  Switch,
+} from 'react-router-dom';
+import Home from './Home.js'
+import AllYarn from './AllYarn.js'
+import OneYarn from './OneYarn.js'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route 
+          path="/"
+          exact
+          render={(routerProps) => <Home {...routerProps}/>}
+        />
+        <Route
+          path="/yarn"
+          exact
+          render={(routerProps) => <AllYarn {...routerProps}/>}
+        />
+        <Route
+          path="/yarn/:id"
+          exact
+          render={(routerProps) => <OneYarn {...routerProps}/>}
+        />
+      </Switch>
+    </Router>
   );
 }
 
