@@ -27,8 +27,8 @@ export default class Home extends Component {
         		<p>Want to see what random yarn I put in a list?</p>
       		</header>
 
-			<main>
-				<nav className="redirects">
+			<main className="redirects">
+			
 					<section>
 						<Link className="button-link" to="/yarn">See All the Yarn</Link>
 					</section>
@@ -47,7 +47,7 @@ export default class Home extends Component {
 						? <Link className="dropdown-link" to={`/yarn/${this.state.dropdown}`}>...but you decide to click anyway</Link>
 						: <span>You don't know what these numbers mean...</span>}
 					</section>
-				</nav>
+			
 			</main>
     	
 		</div>

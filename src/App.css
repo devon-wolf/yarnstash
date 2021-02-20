@@ -17,7 +17,7 @@
   color: #61dafb;
 }
 
-.redirects {
+main {
   display: grid;
   grid-template-columns: 50% 50%;
   min-height: 70vh;
@@ -54,4 +54,15 @@
   background-color: springgreen;
   box-shadow: #282c34 4px 4px;
   padding: .5rem;
+}
+
+.yarn-item {
+  width: 100%;
+  height: min-content;
+  text-align: left;
+  padding: 1rem;
+}
+
+.yarn-item h3 {
+  margin-top: 0;
 }

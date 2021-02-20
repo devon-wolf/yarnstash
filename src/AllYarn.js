@@ -32,8 +32,9 @@ export default class AllYarn extends Component {
 					</NavLink>
 					</nav>
 				</header>
+				<main>
 				{this.state.yarn.map(yarnObj =>
-				<div key={yarnObj.name}>
+				<div className="yarn-item" key={yarnObj.name}>
 					<h3>{yarnObj.name}</h3>
 					<p>Brand: {yarnObj.brand}</p>
 					<p>Material: {yarnObj.material}</p>
@@ -41,6 +42,7 @@ export default class AllYarn extends Component {
 					<p>Weight: {yarnObj.yarn_weight}</p>
 					<p>Quantity on Hand: {yarnObj.quantity}</p>
 				</div>)}
+				</main>
 			</div>
 		)
 	}

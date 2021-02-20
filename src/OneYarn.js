@@ -33,8 +33,8 @@ export default class OneYarn extends Component {
 					</NavLink>
 					</nav>
 				</header>
-				
-				<div>
+				<main className="yarn-display">
+				<div className="yarn-item">
 					<h3>{this.state.yarn.name}</h3>
 					<p>Brand: {this.state.yarn.brand}</p>
 					<p>Material: {this.state.yarn.material}</p>
@@ -42,6 +42,7 @@ export default class OneYarn extends Component {
 					<p>Weight: {this.state.yarn.yarn_weight}</p>
 					<p>Quantity on Hand: {this.state.yarn.quantity}</p>
 				</div>
+				</main>
 			</div>
 		)
 	}
