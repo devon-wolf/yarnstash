@@ -1,5 +1,7 @@
+import './App.css';
 import React, { Component } from 'react'
 import request from 'superagent';
+import { NavLink } from 'react-router-dom'
 
 export default class OneYarn extends Component {
 	state = {
@@ -19,8 +21,19 @@ export default class OneYarn extends Component {
 
 	render() {
 		return (
-			<div>
-				<h1>ONE YARN PAGE</h1>
+			<div className="App">
+				<header className="App-header">
+					<h1>JUST ONE YARN</h1>
+					<nav>
+					<NavLink 
+						exact 
+						className="App-link"
+						to="/">
+						GO BACK
+					</NavLink>
+					</nav>
+				</header>
+				
 				<div>
 					<h3>{this.state.yarn.name}</h3>
 					<p>Brand: {this.state.yarn.brand}</p>
