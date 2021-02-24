@@ -39,7 +39,7 @@ export default class OneYarn extends Component {
 					<p>Brand: {this.state.yarn.brand}</p>
 					<p>Material: {this.state.yarn.material}</p>
 					<p>Color: {this.state.yarn.color}</p>
-					<p>Weight: {this.state.yarn.yarn_weight}</p>
+					<p>Weight: {this.state.yarn.weight}</p>
 					<p>Quantity on Hand: {this.state.yarn.quantity}</p>
 				</div>
 				</main>
