@@ -1,6 +1,5 @@
 import './App.css';
 import React, { Component } from 'react'
-import request from 'superagent'
 import { NavLink } from 'react-router-dom'
 import { getYarns } from './api-utils'
 

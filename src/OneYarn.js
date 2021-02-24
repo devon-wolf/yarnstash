@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react'
-import request from 'superagent';
 import { NavLink } from 'react-router-dom'
+import { getYarnByID } from './api-utils.js'
 
 export default class OneYarn extends Component {
 	state = {
@@ -14,8 +14,8 @@ export default class OneYarn extends Component {
 
 	loadYarn = async () => {
 		this.setState({ yarn: {} });
-		const yarnData = await request.get(`https://glacial-mesa-65705.herokuapp.com/yarns/${this.props.match.params.id}`);
-		this.setState({ yarn: yarnData.body });
+		const yarnData = await getYarnByID(this.props.match.params.id);
+		this.setState({ yarn: yarnData });
 	}
 
 
