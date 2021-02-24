@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const URL = 'https://glacial-mesa-65705.herokuapp.com/';
+const URL = 'https://glacial-mesa-65705.herokuapp.com';
 
 export async function getYarns() {
 	const { body } = await request.get(`${URL}/yarns`);

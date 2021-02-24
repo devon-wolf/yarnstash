@@ -2,6 +2,7 @@ import './App.css';
 import React, { Component } from 'react'
 import request from 'superagent'
 import { NavLink } from 'react-router-dom'
+import { getYarns } from './api-utils'
 
 export default class AllYarn extends Component {
 	state = {
@@ -14,11 +15,12 @@ export default class AllYarn extends Component {
 
 	loadYarn = async () => {
 		this.setState({ yarn: [] });
-		const yarnData = await request.get(`https://glacial-mesa-65705.herokuapp.com/yarns`);
-		this.setState({ yarn: yarnData.body });
+		const yarnData = await getYarns();
+		this.setState({ yarn: yarnData });
    }
 
 	render() {
+		
 		return (
 			<div className="App">
 				<header className="App-header">
