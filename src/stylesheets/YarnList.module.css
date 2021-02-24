@@ -1,0 +1,12 @@
+.list {
+	background-color: mediumaquamarine;
+	list-style: none;
+	padding-left: unset;
+	padding: 1rem;
+}
+
+.listItem {
+	background-color: mediumorchid;
+	border: solid 4px midnightblue;
+	margin: 1rem;
+}

@@ -2,9 +2,12 @@ import './App.css';
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { getYarns } from './api-utils'
+import YarnList from './YarnList.js'
+import Spinner from './Spinner.js'
 
 export default class AllYarn extends Component {
 	state = {
+		loading: false,
 		yarn: []
 	}
 
@@ -13,9 +16,9 @@ export default class AllYarn extends Component {
 	}
 
 	loadYarn = async () => {
-		this.setState({ yarn: [] });
+		this.setState({ loading: true, yarn: [] });
 		const yarnData = await getYarns();
-		this.setState({ yarn: yarnData });
+		this.setState({ loading: false, yarn: yarnData });
    }
 
 	render() {
@@ -34,15 +37,9 @@ export default class AllYarn extends Component {
 					</nav>
 				</header>
 				<main>
-				{this.state.yarn.map(yarnObj =>
-				<div className="yarn-item" key={yarnObj.name}>
-					<h3>{yarnObj.name}</h3>
-					<p>Brand: {yarnObj.brand}</p>
-					<p>Material: {yarnObj.material}</p>
-					<p>Color: {yarnObj.color}</p>
-					<p>Weight: {yarnObj.weight}</p>
-					<p>Quantity on Hand: {yarnObj.quantity}</p>
-				</div>)}
+					{this.state.loading
+					? <Spinner />
+					: <YarnList data={this.state.yarn} />}
 				</main>
 			</div>
 		)
