@@ -39,7 +39,7 @@ export default class AllYarn extends Component {
 					<p>Brand: {yarnObj.brand}</p>
 					<p>Material: {yarnObj.material}</p>
 					<p>Color: {yarnObj.color}</p>
-					<p>Weight: {yarnObj.yarn_weight}</p>
+					<p>Weight: {yarnObj.weight}</p>
 					<p>Quantity on Hand: {yarnObj.quantity}</p>
 				</div>)}
 				</main>
