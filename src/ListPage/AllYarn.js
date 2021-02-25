@@ -26,8 +26,16 @@ export default class AllYarn extends Component {
 		this.setState({ loading: false, yarn: yarnData, yarnWeights: weightData });
    }
 
+
 	render() {
-		console.log(this.state.weight_id);
+		const filteredYarns = this.state.yarn.filter(yarnObj => {
+			if (this.state.weight_id) {
+				console.log(this.state.weight_id, yarnObj.weight_id);
+				return Number(yarnObj.weight_id) === Number(this.state.weight_id);
+			}
+			else return true;
+		});
+		console.log(filteredYarns);
 		return (
 			<div className="App">
 				<header className="App-header">
@@ -49,7 +57,7 @@ export default class AllYarn extends Component {
 					/>
 					{this.state.loading
 					? <Spinner />
-					: <YarnList data={this.state.yarn} />}
+					: <YarnList data={filteredYarns} />}
 				</main>
 			</div>
 		)
