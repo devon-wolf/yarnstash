@@ -7,12 +7,13 @@ export default class AddYarnPage extends Component {
 		brand: '',
 		material: '',
 		color: '',
-		weight: '',
+		weight_id: '',
 		quantity: 0,
-		partial: false
+		partials: false
 	}
 
 	render() {
+		console.log(this.state)
 		return (
 			<main>
 				<YarnForm 
@@ -20,26 +21,26 @@ export default class AddYarnPage extends Component {
 					 e => console.log('Submit!')
 				}
 				handleNameChange={
-					 e => console.log('name input change')
+					 e => this.setState({name: e.target.value})
 				}
 				handleBrandChange={
-					 e => console.log('brand input change')
+					 e => this.setState({brand: e.target.value})
 				}
 				handleMaterialChange={
-					 e => console.log('material input change')
+					 e => this.setState({material: e.target.value})
 				}
 				handleColorChange={
-					 e => console.log('color input change')
+					 e => this.setState({color: e.target.value})
 				}
 				handleWeightChange={
-					 e => console.log('weight dropdown change')
+					 e => this.setState({weight_id: e.target.value})
 				}
 				data={[{id: 1, weight: 'worsted'}, {id: 2, weight: 'sport'}]}
 				handleQuantityChange={
-					 e => console.log('quantity input change')
+					 e => this.setState({quantity: Number(e.target.value)})
 				}
 				handleCheckbox={
-					 e => console.log('checkbox change')
+					 e => this.setState({partials: !this.state.partials})
 				}
 				/>
 			</main>
