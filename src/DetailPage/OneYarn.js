@@ -4,7 +4,8 @@ import { getYarnByID } from '../api-utils.js'
 import YarnItem from '../ListPage/YarnItem.js'
 import style from '../stylesheets/DetailPage.module.css'
 import YarnForm from '../CreatePage/YarnForm'
-import { updateYarn } from '../api-utils.js'
+import { updateYarn, deleteYarn } from '../api-utils.js'
+import DeleteYarnButton from './DeleteYarnButton';
 
 export default class OneYarn extends Component {
 	state = {
@@ -52,6 +53,11 @@ export default class OneYarn extends Component {
 		e.preventDefault();
 		const updatedYarn = this.state;
 		await updateYarn(this.state.id, updatedYarn);
+		this.props.history.push('/yarn');
+	}
+
+	handleDeleteClick = async () => {
+		await deleteYarn(this.state.id);
 		this.props.history.push('/yarn');
 	}
 
@@ -114,6 +120,9 @@ export default class OneYarn extends Component {
 					 e => this.setState({partials: !this.state.partials})
 				}
 					/>
+
+				<DeleteYarnButton handleDeleteClick={this.handleDeleteClick} />
+
 				</section>
 				</main>
 			</div>
