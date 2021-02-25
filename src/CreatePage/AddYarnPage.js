@@ -16,7 +16,7 @@ export default class AddYarnPage extends Component {
 	handleSubmit = async (e) => {
 		e.preventDefault();
 		const newYarn = this.state;
-		addYarn(newYarn);
+		await addYarn(newYarn);
 	}
 	
 	render() {

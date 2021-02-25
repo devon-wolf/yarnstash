@@ -8,13 +8,14 @@ import { updateYarn } from '../api-utils.js'
 
 export default class OneYarn extends Component {
 	state = {
+		id: '',
 		name: '',
 		brand: '',
 		material: '',
 		color: '',
-		weight_id: '',
 		quantity: 0,
-		partials: false
+		partials: false,
+		weight_id: '',
 	}
 
 	componentDidMount = async () => {
@@ -23,30 +24,35 @@ export default class OneYarn extends Component {
 
 	loadYarn = async () => {
 		this.setState({
+			id: '',
 			name: '',
 			brand: '',
 			material: '',
 			color: '',
-			weight_id: '',
 			quantity: 0,
-			partials: false
+			partials: false,
+			weight_id: '',
 		});
+
 		const yarnData = await getYarnByID(this.props.match.params.id);
-		this.setState({ 
+
+		this.setState({
+			id: yarnData.id,
 			name: yarnData.name,
 			brand: yarnData.brand,
 			material: yarnData.material,
 			color: yarnData.color,
-			weight_id: yarnData.weight_id,
 			quantity: yarnData.quantity,
-			partials: yarnData.partials
+			partials: yarnData.partials,
+			weight_id: yarnData.weight_id,
 		});
 	}
 
 	handleSubmit = async (e) => {
 		e.preventDefault();
 		const updatedYarn = this.state;
-		updateYarn(this.state.weight_id, updatedYarn);
+		await updateYarn(this.state.id, updatedYarn);
+		this.props.history.push('/yarn');
 	}
 
 	render() {
