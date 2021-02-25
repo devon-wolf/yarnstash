@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import YarnForm from './YarnForm.js'
-import request from 'superagent'
 import { addYarn } from '../api-utils.js'
 
 export default class AddYarnPage extends Component {
@@ -16,7 +15,8 @@ export default class AddYarnPage extends Component {
 
 	handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log('state at time of submit:', this.state)
+		const newYarn = this.state;
+		addYarn(newYarn);
 	}
 	
 	render() {
