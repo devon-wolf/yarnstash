@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
 import WeightDropdown from './WeightDropdown.js'
-import TextInput from '../Common/TextInput.js'
 import style from '../stylesheets/CreatePage.module.css'
+import { getYarnWeights } from '../api-utils.js'
 
 export default class YarnForm extends Component {
+	state = {
+		yarnWeights: []
+	}
+
+	componentDidMount = async () => {
+		const weightData = await getYarnWeights();
+		this.setState({ yarnWeights: weightData });
+	}
 
 	render() {
+
 		return (
 			<form className={style.form} onSubmit={this.props.handleSubmit}>
 				<label>
@@ -30,7 +39,7 @@ export default class YarnForm extends Component {
 				
 				<label>
 					Weight
-					<WeightDropdown handleChange={this.props.handleWeightChange} data={this.props.data} weightValue={this.props.weightValue} />
+					<WeightDropdown handleChange={this.props.handleWeightChange} data={this.state.yarnWeights} weightValue={this.props.weightValue} />
 				</label>
 				
 				<label>

@@ -17,6 +17,7 @@ export default class AddYarnPage extends Component {
 		e.preventDefault();
 		const newYarn = this.state;
 		await addYarn(newYarn);
+		this.props.history.push('/yarn');
 	}
 	
 	render() {
@@ -40,7 +41,7 @@ export default class AddYarnPage extends Component {
 				handleWeightChange={
 					 e => this.setState({weight_id: e.target.value})
 				}
-				data={[{id: 1, weight: 'worsted'}, {id: 2, weight: 'sport'}]}
+				
 				handleQuantityChange={
 					 e => this.setState({quantity: Number(e.target.value)})
 				}

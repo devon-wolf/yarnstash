@@ -104,8 +104,6 @@ export default class OneYarn extends Component {
 					 e => this.setState({weight_id: e.target.value})
 				}
 				
-				data={[{id: 1, weight: 'worsted'}, {id: 2, weight: 'sport'}]}
-				
 				quantity={this.state.quantity}
 				handleQuantityChange={
 					 e => this.setState({quantity: Number(e.target.value)})
