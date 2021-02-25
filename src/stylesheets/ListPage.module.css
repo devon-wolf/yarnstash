@@ -1,0 +1,16 @@
+.dropdownLabel {
+	grid-column: 2;
+	text-align: right;
+	color: white;
+	height: min-content;
+	background-color: tomato;
+	margin-bottom: 0;
+}
+
+.dropdownLabel select {
+	margin: 1rem;
+}
+
+.main {
+	background-color: teal;
+}

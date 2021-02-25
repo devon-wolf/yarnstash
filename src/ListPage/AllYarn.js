@@ -1,9 +1,9 @@
-import '../App.css';
 import React, { Component } from 'react'
 import { getYarns, getYarnWeights, deleteYarn } from '../api-utils.js'
 import YarnList from './YarnList.js'
 import Spinner from '../Common/Spinner.js'
 import WeightDropdown from '../CreatePage/WeightDropdown.js'
+import style from '../stylesheets/ListPage.module.css'
 
 
 export default class AllYarn extends Component {
@@ -39,12 +39,16 @@ export default class AllYarn extends Component {
 		});
 		
 		return (
-				<main>
-					<WeightDropdown 
-					handleChange={e => this.setState({weight_id: e.target.value})}
-					data={this.state.yarnWeights}
-					weightValue={this.state.weight_id}	
-					/>
+				<main className={style.main}>
+					<label className={style.dropdownLabel}>
+						Filter by yarn weight: 
+						<WeightDropdown 
+						handleChange={e => this.setState({weight_id: e.target.value})}
+						data={this.state.yarnWeights}
+						weightValue={this.state.weight_id}	
+						/>
+					</label>
+					
 					{this.state.loading
 					? <Spinner />
 					: <YarnList data={filteredYarns} handleDeleteClick={this.handleDeleteClick} />}

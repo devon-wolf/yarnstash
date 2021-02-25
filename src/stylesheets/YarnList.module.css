@@ -5,10 +5,14 @@
 	grid-column: 1 / 3;
 	display: grid;
 	grid-template-columns: 50% 50%;
+	margin: 0;
+	background-color: thistle;
+
 }
 
 .listItem {
 	border: solid 4px midnightblue;
 	margin: 1rem;
 	padding: 1rem;
+	background-color: yellow;
 }
