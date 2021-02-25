@@ -10,37 +10,37 @@ export default class YarnForm extends Component {
 			<form className={style.form} onSubmit={this.props.handleSubmit}>
 				<label>
 					Name
-					<TextInput handleChange={this.props.handleNameChange}/>
+					<input onChange={this.props.handleNameChange} value={this.props.name} />
 				</label>
 				
 				<label>
 					Brand
-					<TextInput handleChange={this.props.handleBrandChange}/>
+					<input onChange={this.props.handleBrandChange} value={this.props.brand} />
 				</label>
 				
 				<label>
 					Material
-					<TextInput handleChange={this.props.handleMaterialChange}/>
+					<input onChange={this.props.handleMaterialChange} value={this.props.material} />
 				</label>
 				
 				<label>
 					Color
-					<TextInput handleChange={this.props.handleColorChange}/>
+					<input onChange={this.props.handleColorChange} value={this.props.color} />
 				</label>
 				
 				<label>
 					Weight
-					<WeightDropdown handleChange={this.props.handleWeightChange} data={this.props.data} />
+					<WeightDropdown handleChange={this.props.handleWeightChange} data={this.props.data} weightValue={this.props.weightValue} />
 				</label>
 				
 				<label>
 					Quantity on Hand
-					<input type="number" onChange={this.props.handleQuantityChange} />
+					<input type="number" onChange={this.props.handleQuantityChange} value={this.props.quantity} />
 				</label>
 
 				<label>
 					Partial skeins?
-					<input type="checkbox" onChange={this.props.handleCheckbox} />
+					<input type="checkbox" onChange={this.props.handleCheckbox} value={this.props.partials} checked={this.props.partials} />
 				</label>
 				<button>Submit</button>
 			</form>
