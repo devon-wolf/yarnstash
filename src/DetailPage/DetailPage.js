@@ -119,9 +119,9 @@ export default class OneYarn extends Component {
 				handleCheckbox={
 					 e => this.setState({partials: !this.state.partials})
 				}
-					/>
+				/>
 
-				<DeleteYarnButton handleDeleteClick={this.handleDeleteClick} />
+				<DeleteYarnButton handleDeleteClick={this.handleDeleteClick} value={this.state.id}/>
 
 				</section>
 				</main>

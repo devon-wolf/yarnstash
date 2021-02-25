@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import style from '../stylesheets/YarnList.module.css'
 import { Link } from 'react-router-dom'
+import DeleteYarnButton from '../DetailPage/DeleteYarnButton'
+import { deleteYarn } from '../api-utils.js'
 
 export default class YarnItem extends Component {
+
 	render() {
 		return (
 			<li className={style.listItem}>
@@ -16,6 +19,7 @@ export default class YarnItem extends Component {
 				<Link to={`yarn/${this.props.id}`}>
 					Edit Yarn
 				</Link>
+				<DeleteYarnButton handleDeleteClick={this.props.handleDeleteClick} value={this.props.value}/>
 			</li>
 		)
 	}

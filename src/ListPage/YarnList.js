@@ -18,6 +18,8 @@ export default class YarnList extends Component {
 					partials={yarnObj.partials ? 'yes' : 'no'}
 					id={yarnObj.id}
 					key={yarnObj.id}
+					value={yarnObj.id}
+					handleDeleteClick={this.props.handleDeleteClick}
 				/>)}
 			</ul>
 		)
