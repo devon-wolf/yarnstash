@@ -15,6 +15,7 @@ export default class YarnList extends Component {
 					weight={yarnObj.weight}
 					quantity={yarnObj.quantity}
 					partials={yarnObj.partials ? 'yes' : 'no'}
+					id={yarnObj.id}
 					key={yarnObj.id}
 				/>)}
 			</ul>

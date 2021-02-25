@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import Home from './Home.js'
 import AllYarn from './ListPage/AllYarn.js'
-import OneYarn from './DetailPage/OneYarn.js'
+import DetailPage from './DetailPage/DetailPage.js'
 import AddYarnPage from './CreatePage/AddYarnPage.js'
 import Header from './Common/Header.js'
 
@@ -28,7 +28,7 @@ function App() {
         <Route
           path="/yarn/:id"
           exact
-          render={(routerProps) => <OneYarn {...routerProps}/>}
+          render={(routerProps) => <DetailPage {...routerProps}/>}
         />
         <Route
           path="/new"
