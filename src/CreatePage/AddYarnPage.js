@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import YarnForm from './YarnForm.js'
+import request from 'superagent'
+import { addYarn } from '../api-utils.js'
 
 export default class AddYarnPage extends Component {
 	state = {
@@ -12,14 +14,17 @@ export default class AddYarnPage extends Component {
 		partials: false
 	}
 
+	handleSubmit = async (e) => {
+		e.preventDefault();
+		console.log('state at time of submit:', this.state)
+	}
+	
 	render() {
-		console.log(this.state)
+		
 		return (
 			<main>
 				<YarnForm 
-				handleSubmit={
-					 e => console.log('Submit!')
-				}
+				handleSubmit={this.handleSubmit}
 				handleNameChange={
 					 e => this.setState({name: e.target.value})
 				}

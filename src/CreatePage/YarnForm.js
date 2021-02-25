@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import WeightDropdown from './WeightDropdown.js'
 import TextInput from '../Common/TextInput.js'
+import style from '../stylesheets/CreatePage.module.css'
 
 export default class YarnForm extends Component {
 
 	render() {
 		return (
-			<form onSubmit={this.props.handleSubmit}>
+			<form className={style.form} onSubmit={this.props.handleSubmit}>
 				<label>
 					Name
 					<TextInput handleChange={this.props.handleNameChange}/>
