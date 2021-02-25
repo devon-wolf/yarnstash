@@ -1,14 +1,18 @@
 import '../App.css';
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import { getYarns } from '../api-utils'
+import { getYarns, getYarnWeights } from '../api-utils.js'
 import YarnList from './YarnList.js'
 import Spinner from '../Common/Spinner.js'
+import WeightDropdown from '../CreatePage/WeightDropdown.js'
+
 
 export default class AllYarn extends Component {
 	state = {
 		loading: false,
-		yarn: []
+		yarn: [],
+		yarnWeights: [],
+		weightID: ''
 	}
 
 	componentDidMount = async () => {
@@ -18,11 +22,12 @@ export default class AllYarn extends Component {
 	loadYarn = async () => {
 		this.setState({ loading: true, yarn: [] });
 		const yarnData = await getYarns();
-		this.setState({ loading: false, yarn: yarnData });
+		const weightData = await getYarnWeights();
+		this.setState({ loading: false, yarn: yarnData, yarnWeights: weightData });
    }
 
 	render() {
-		
+		console.log(this.state.weight_id);
 		return (
 			<div className="App">
 				<header className="App-header">
@@ -37,6 +42,11 @@ export default class AllYarn extends Component {
 					</nav>
 				</header>
 				<main>
+					<WeightDropdown 
+					handleChange={e => this.setState({weight_id: e.target.value})}
+					data={this.state.yarnWeights}
+					weightValue={this.state.weight_id}	
+					/>
 					{this.state.loading
 					? <Spinner />
 					: <YarnList data={this.state.yarn} />}

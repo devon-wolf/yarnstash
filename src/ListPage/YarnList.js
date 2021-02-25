@@ -3,6 +3,7 @@ import YarnItem from './YarnItem.js'
 import style from '../stylesheets/YarnList.module.css'
 
 export default class YarnList extends Component {
+	
 	render() {
 		return (
 			<ul className={style.list}>

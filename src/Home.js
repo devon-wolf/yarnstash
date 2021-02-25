@@ -15,7 +15,6 @@ export default class Home extends Component {
       		</header>
 
 			<main className="redirects">
-			
 					<section>
 						<Link className="button-link" to="/yarn">See All the Yarn</Link>
 					</section>
@@ -23,7 +22,6 @@ export default class Home extends Component {
 					<section>
 						<Link className="button-link" to="/new">Add to the Yarnstash</Link>
 					</section>
-			
 			</main>
     	
 		</div>
