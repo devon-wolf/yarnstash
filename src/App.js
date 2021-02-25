@@ -1,16 +1,19 @@
-import './App.css';
+import './App.css'
 import {
   BrowserRouter as Router, 
   Route, 
   Switch,
-} from 'react-router-dom';
+} from 'react-router-dom'
 import Home from './Home.js'
-import AllYarn from './AllYarn.js'
-import OneYarn from './OneYarn.js'
+import AllYarn from './ListPage/AllYarn.js'
+import DetailPage from './DetailPage/DetailPage.js'
+import AddYarnPage from './CreatePage/AddYarnPage.js'
+import Header from './Common/Header.js'
 
 function App() {
   return (
     <Router>
+      <Header />
       <Switch>
         <Route 
           path="/"
@@ -25,7 +28,12 @@ function App() {
         <Route
           path="/yarn/:id"
           exact
-          render={(routerProps) => <OneYarn {...routerProps}/>}
+          render={(routerProps) => <DetailPage {...routerProps}/>}
+        />
+        <Route
+          path="/new"
+          exact
+          render={(routerProps) => <AddYarnPage {...routerProps}/>}
         />
       </Switch>
     </Router>

@@ -1,0 +1,24 @@
+.redirects section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  .buttonLink:link, .buttonLink:visited {
+	color: inherit;
+	text-decoration: none;
+	box-shadow: #282c34 4px 4px;
+	padding: 2rem;
+	background-color: springgreen;
+	font-size: 1.25rem;
+  }
+  
+  .redirects select {
+	margin: 1rem;
+	width: 40%;
+	height: 1.5rem;
+	padding: .25rem;
+	font-family: monospace;
+  }
+  
