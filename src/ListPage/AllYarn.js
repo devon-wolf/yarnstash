@@ -1,6 +1,5 @@
 import '../App.css';
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
 import { getYarns, getYarnWeights, deleteYarn } from '../api-utils.js'
 import YarnList from './YarnList.js'
 import Spinner from '../Common/Spinner.js'
@@ -40,18 +39,6 @@ export default class AllYarn extends Component {
 		});
 		
 		return (
-			<div className="App">
-				<header className="App-header">
-					<h1>ALL THE YARN</h1>
-					<nav>
-					<NavLink 
-						exact 
-						className="App-link"
-						to="/">
-						GO BACK
-					</NavLink>
-					</nav>
-				</header>
 				<main>
 					<WeightDropdown 
 					handleChange={e => this.setState({weight_id: e.target.value})}
@@ -62,7 +49,6 @@ export default class AllYarn extends Component {
 					? <Spinner />
 					: <YarnList data={filteredYarns} handleDeleteClick={this.handleDeleteClick} />}
 				</main>
-			</div>
 		)
 	}
 }

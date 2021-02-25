@@ -1,31 +1,31 @@
 import React, { Component } from 'react'
-import '../App.css'
 import { NavLink } from 'react-router-dom'
+import style from '../stylesheets/Header.module.css'
 
 export default class Header extends Component {
 	render() {
 		return (
-			<header>
+			<header className={style.header}>
 					<h1>YARNSTASH</h1>
 					<nav>
 					<NavLink 
 						exact 
-						className="App-link"
-						activeClassName="current"
+						className={style.link}
+						activeClassName={style.current}
 						to="/">
 						Home
 					</NavLink>
 					<NavLink 
 						exact 
-						className="App-link"
-						activeClassName="current"
+						className={style.link}
+						activeClassName={style.current}
 						to="/yarn">
 						All Yarns
 					</NavLink>
 					<NavLink 
 						exact 
-						className="App-link"
-						activeClassName="current"
+						className={style.link}
+						activeClassName={style.current}
 						to="/new">
 						Add New Yarn
 					</NavLink>

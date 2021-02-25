@@ -63,69 +63,64 @@ export default class OneYarn extends Component {
 
 	render() {
 		return (
-			<div className="App">
-				<header className="App-header">
-					<h1>JUST ONE YARN</h1>
-				</header>
-				<main>
-				<section className={style.yarnDisplay}>
-					<YarnItem
+		<main>
+			<section className={style.yarnDisplay}>
+						<YarnItem
+							name={this.state.name}
+							brand={this.state.brand}
+							material={this.state.material}
+							color={this.state.color}
+							weight={this.state.weight}
+							quantity={this.state.quantity}
+							partials={this.state.partials ? 'yes' : 'no'}
+						/>
+					</section>
+
+			<section className={style.updateForm}>
+						<h3>Update This Yarn</h3>
+						<YarnForm
+						handleSubmit={this.handleSubmit}
+						
 						name={this.state.name}
+						handleNameChange={
+							e => this.setState({name: e.target.value})
+						}
+						
 						brand={this.state.brand}
+						handleBrandChange={
+							e => this.setState({brand: e.target.value})
+						}
+						
 						material={this.state.material}
+						handleMaterialChange={
+							e => this.setState({material: e.target.value})
+						}
+						
 						color={this.state.color}
-						weight={this.state.weight}
+						handleColorChange={
+							e => this.setState({color: e.target.value})
+						}
+						
+						weightValue={this.state.weight_id}
+						handleWeightChange={
+							e => this.setState({weight_id: e.target.value})
+						}
+						
 						quantity={this.state.quantity}
-						partials={this.state.partials ? 'yes' : 'no'}
-					/>
-				</section>
+						handleQuantityChange={
+							e => this.setState({quantity: Number(e.target.value)})
+						}
 
-				<section className={style.updateForm}>
-					<h3>Update This Yarn</h3>
-				<YarnForm
-				handleSubmit={this.handleSubmit}
-				
-				name={this.state.name}
-				handleNameChange={
-					 e => this.setState({name: e.target.value})
-				}
-				
-				brand={this.state.brand}
-				handleBrandChange={
-					 e => this.setState({brand: e.target.value})
-				}
-				
-				material={this.state.material}
-				handleMaterialChange={
-					 e => this.setState({material: e.target.value})
-				}
-				
-				color={this.state.color}
-				handleColorChange={
-					 e => this.setState({color: e.target.value})
-				}
-				
-				weightValue={this.state.weight_id}
-				handleWeightChange={
-					 e => this.setState({weight_id: e.target.value})
-				}
-				
-				quantity={this.state.quantity}
-				handleQuantityChange={
-					 e => this.setState({quantity: Number(e.target.value)})
-				}
+						partials={this.state.partials}
+						handleCheckbox={
+							e => this.setState({partials: !this.state.partials})
+						}
+						/>
 
-				partials={this.state.partials}
-				handleCheckbox={
-					 e => this.setState({partials: !this.state.partials})
-				}
-				/>
+						<DeleteYarnButton handleDeleteClick={this.handleDeleteClick} value={this.state.id}/>
 
-				<DeleteYarnButton handleDeleteClick={this.handleDeleteClick} value={this.state.id}/>
-
-				</section>
-				</main>
-			</div>
+					</section>
+		</main>
 		)
 	}
 }
