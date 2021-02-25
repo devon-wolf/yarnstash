@@ -1,6 +1,8 @@
 import '../App.css';
 import React, { Component } from 'react'
 import { getYarnByID } from '../api-utils.js'
+import YarnItem from '../ListPage/YarnItem.js'
+import style from '../stylesheets/DetailPage.module.css'
 
 export default class OneYarn extends Component {
 	state = {
@@ -26,15 +28,16 @@ export default class OneYarn extends Component {
 				<header className="App-header">
 					<h1>JUST ONE YARN</h1>
 				</header>
-				<main className="yarn-display">
-				<div className="yarn-item">
-					<h3>{this.state.yarn.name}</h3>
-					<p>Brand: {this.state.yarn.brand}</p>
-					<p>Material: {this.state.yarn.material}</p>
-					<p>Color: {this.state.yarn.color}</p>
-					<p>Weight: {this.state.yarn.weight}</p>
-					<p>Quantity on Hand: {this.state.yarn.quantity}</p>
-				</div>
+				<main className={style.yarnDisplay}>
+					<YarnItem
+					name={this.state.yarn.name}
+					brand={this.state.yarn.brand}
+					material={this.state.yarn.material}
+					color={this.state.yarn.color}
+					weight={this.state.yarn.weight}
+					quantity={this.state.yarn.quantity}
+					partials={this.state.yarn.partials ? 'yes' : 'no'}
+					/>
 				</main>
 			</div>
 		)
