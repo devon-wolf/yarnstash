@@ -3,11 +3,18 @@ import React, { Component } from 'react'
 import { getYarnByID } from '../api-utils.js'
 import YarnItem from '../ListPage/YarnItem.js'
 import style from '../stylesheets/DetailPage.module.css'
-import YarnForm from '../CreatePage/YarnForm';
+import YarnForm from '../CreatePage/YarnForm'
+import { updateYarn } from '../api-utils.js'
 
 export default class OneYarn extends Component {
 	state = {
-		yarn: {},
+		name: '',
+		brand: '',
+		material: '',
+		color: '',
+		weight_id: '',
+		quantity: 0,
+		partials: false
 	}
 
 	componentDidMount = async () => {
@@ -15,20 +22,34 @@ export default class OneYarn extends Component {
 	}
 
 	loadYarn = async () => {
-		this.setState({ yarn: {} });
+		this.setState({
+			name: '',
+			brand: '',
+			material: '',
+			color: '',
+			weight_id: '',
+			quantity: 0,
+			partials: false
+		});
 		const yarnData = await getYarnByID(this.props.match.params.id);
 		this.setState({ 
-			yarn: yarnData
+			name: yarnData.name,
+			brand: yarnData.brand,
+			material: yarnData.material,
+			color: yarnData.color,
+			weight_id: yarnData.weight_id,
+			quantity: yarnData.quantity,
+			partials: yarnData.partials
 		});
 	}
 
-	handleSubmit = () => console.log('Submit!');
-
-// NOTE TO SELF: not all ids exist anymore, need to remove hardcoded ids in the homepage dropdown, make these click-throughs from the list page
+	handleSubmit = async (e) => {
+		e.preventDefault();
+		const updatedYarn = this.state;
+		updateYarn(this.state.weight_id, updatedYarn);
+	}
 
 	render() {
-	
-		console.log(this.state);
 		return (
 			<div className="App">
 				<header className="App-header">
@@ -37,53 +58,54 @@ export default class OneYarn extends Component {
 				<main>
 				<section className={style.yarnDisplay}>
 					<YarnItem
-						name={this.state.yarn.name}
-						brand={this.state.yarn.brand}
-						material={this.state.yarn.material}
-						color={this.state.yarn.color}
-						weight={this.state.yarn.weight}
-						quantity={this.state.yarn.quantity}
-						partials={this.state.yarn.partials ? 'yes' : 'no'}
+						name={this.state.name}
+						brand={this.state.brand}
+						material={this.state.material}
+						color={this.state.color}
+						weight={this.state.weight}
+						quantity={this.state.quantity}
+						partials={this.state.partials ? 'yes' : 'no'}
 					/>
 				</section>
 
-				<section className={style.yarnDisplay}>
+				<section className={style.updateForm}>
+					<h3>Update This Yarn</h3>
 				<YarnForm
 				handleSubmit={this.handleSubmit}
 				
-				name={this.state.yarn.name}
+				name={this.state.name}
 				handleNameChange={
 					 e => this.setState({name: e.target.value})
 				}
 				
-				brand={this.state.yarn.brand}
+				brand={this.state.brand}
 				handleBrandChange={
 					 e => this.setState({brand: e.target.value})
 				}
 				
-				material={this.state.yarn.material}
+				material={this.state.material}
 				handleMaterialChange={
 					 e => this.setState({material: e.target.value})
 				}
 				
-				color={this.state.yarn.color}
+				color={this.state.color}
 				handleColorChange={
 					 e => this.setState({color: e.target.value})
 				}
 				
-				weightValue={this.state.yarn.weight_id}
+				weightValue={this.state.weight_id}
 				handleWeightChange={
 					 e => this.setState({weight_id: e.target.value})
 				}
 				
 				data={[{id: 1, weight: 'worsted'}, {id: 2, weight: 'sport'}]}
 				
-				quantity={this.state.yarn.quantity}
+				quantity={this.state.quantity}
 				handleQuantityChange={
 					 e => this.setState({quantity: Number(e.target.value)})
 				}
 
-				partials={this.state.yarn.partials}
+				partials={this.state.partials}
 				handleCheckbox={
 					 e => this.setState({partials: !this.state.partials})
 				}

@@ -16,7 +16,7 @@ export default class Home extends Component {
 			<Redirect to={`/yarn/${this.state.dropdown}`} />
 		}
 	}
-
+// NOTE TO SELF: not all ids exist anymore, need to remove hardcoded ids in the homepage dropdown, make these click-throughs from the list page
 	render() {
 		
 		return (
