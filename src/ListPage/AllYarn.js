@@ -1,9 +1,9 @@
-import './App.css';
+import '../App.css';
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import { getYarns } from './api-utils'
+import { getYarns } from '../api-utils'
 import YarnList from './YarnList.js'
-import Spinner from './Spinner.js'
+import Spinner from '../Common/Spinner.js'
 
 export default class AllYarn extends Component {
 	state = {

@@ -1,7 +1,6 @@
-import './App.css';
+import '../App.css';
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
-import { getYarnByID } from './api-utils.js'
+import { getYarnByID } from '../api-utils.js'
 
 export default class OneYarn extends Component {
 	state = {
@@ -18,20 +17,14 @@ export default class OneYarn extends Component {
 		this.setState({ yarn: yarnData });
 	}
 
+// NOTE TO SELF: not all ids exist anymore, need to remove hardcoded ids in the homepage dropdown, make these click-throughs from the list page
 
 	render() {
+		
 		return (
 			<div className="App">
 				<header className="App-header">
 					<h1>JUST ONE YARN</h1>
-					<nav>
-					<NavLink 
-						exact 
-						className="App-link"
-						to="/">
-						GO BACK
-					</NavLink>
-					</nav>
 				</header>
 				<main className="yarn-display">
 				<div className="yarn-item">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import style from './stylesheets/YarnList.module.css'
+import style from '../stylesheets/YarnList.module.css'
 
 export default class YarnItem extends Component {
 	render() {

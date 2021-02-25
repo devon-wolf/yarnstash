@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { deleteYarn } from './api-utils'
+import { deleteYarn } from '../api-utils'
 
 export default class DeleteYarnButton extends Component {
 	
