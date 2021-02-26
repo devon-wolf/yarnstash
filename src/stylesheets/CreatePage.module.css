@@ -3,8 +3,10 @@
 	flex-direction: column;
 	justify-content: space-evenly;
 	padding: 1rem;
-	height: min-content;
-	width: fit-content;
+	margin: auto;
+	grid-column: 1 / 3;
+	border: solid mediumseagreen 3px;
+	box-shadow: #282c34 4px 4px;
 }
 
 .form label {
@@ -12,11 +14,15 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: .5rem;
-	border: dotted dodgerblue 2px;
+	
 }
 
-.form input, .form select {
-	margin-left: 1rem;
+.form input, .form select, .form button {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
 }
 
 .form select, .form input[type="number"] {
