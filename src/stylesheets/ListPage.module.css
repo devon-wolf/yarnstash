@@ -1,10 +1,11 @@
 .dropdownLabel {
-	grid-column: 2;
 	text-align: right;
 	color: white;
 	height: min-content;
-	background-color: tomato;
+	background-color: slategray;
 	margin-bottom: 0;
+	position: sticky;
+	top: 20vh;
 }
 
 .dropdownLabel select {
@@ -12,5 +13,7 @@
 }
 
 .main {
-	background-color: teal;
+	display: grid;
+	grid-template-rows: min-content 1fr;
+	grid-template-columns: 1fr;
 }

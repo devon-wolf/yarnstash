@@ -15,10 +15,13 @@ export default class YarnItem extends Component {
 				<p><em>Weight:</em> {this.props.weight}</p>
 				<p><em>Quantity on Hand:</em> {this.props.quantity}</p>
 				<p><em>Partial skeins?</em> {this.props.partials}</p>
-				<Link to={`yarn/${this.props.id}`}>
+				<div className={style.updateLinks}>
+					<Link to={`yarn/${this.props.id}`}>
 					Edit Yarn
-				</Link>
-				<DeleteYarnButton handleDeleteClick={this.props.handleDeleteClick} value={this.props.value}/>
+					</Link>
+					<DeleteYarnButton handleDeleteClick={this.props.handleDeleteClick} value={this.props.value}/>
+				</div>
+				
 			</li>
 		)
 	}
